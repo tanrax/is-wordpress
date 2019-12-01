@@ -1,11 +1,12 @@
 # Requirements
 
-bash 4.0 or higher
+- bash 4.0 or higher
+- curl
 
 # Install
 
 ``` bash
-curl is-wordpress
+curl -o is-wordpress https://raw.githubusercontent.com/tanrax/is-wordpress/master/is-wordpress
 chmod +x is-wordpress
 ```
 
@@ -18,5 +19,5 @@ chmod +x is-wordpress
 # EXAMPLE
 
 ``` bash
-./is-wordpress https://blog.us.playstation.com/
+./is-wordpress blog.us.playstation.com
 ```
