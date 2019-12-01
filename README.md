@@ -21,3 +21,17 @@ chmod +x is-wordpress
 ``` bash
 ./is-wordpress blog.us.playstation.com
 ```
+↓
+``` bash
+true
+```
+---
+
+``` bash
+./is-wordpress google.com
+```
+↓
+``` bash
+false
+```
+
