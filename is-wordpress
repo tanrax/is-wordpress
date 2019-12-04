@@ -8,6 +8,8 @@
 
 # Globals variables
 DOMAIN="$1"
+MAX_TIME=5
+USER_AGENT="Firefox"
 method1=false
 method2=false
 method3=false
@@ -17,7 +19,7 @@ method3=false
 ##
 
 # Local ariables
-ROBOTS_TXT="$(curl -L -s -A 'Firefox' $DOMAIN/robots.txt)"
+ROBOTS_TXT="$(curl -L -s --max-time $MAX_TIME --user-agent $USER_AGENT $DOMAIN/robots.txt)"
 SEARCH_DISALLOW="wp-admin"
 DISALLOW_STRING="Disallow:"
 
@@ -31,7 +33,7 @@ fi
 ##
 
 # Local variables
-HEADERS_LOGIN="$(curl -L -s -I -A 'Firefox' $DOMAIN/wp-login.php)"
+HEADERS_LOGIN="$(curl -L -s -I --max-time $MAX_TIME --user-agent $USER_AGENT $DOMAIN/wp-login.php)"
 COOKIE_SEARCH_LOGIN="set-cookie: wordpress_test_cookie=WP+Cookie+check"
 
 # Check if contains cookie in HEADERS, ignore case
@@ -44,7 +46,7 @@ fi
 ##
 
 # Local vriables
-HTML="$(curl -L -s -A 'Firefox' $DOMAIN)"
+HTML="$(curl -L -s --max-time $MAX_TIME --user-agent $USER_AGENT $DOMAIN)"
 REGEX_SEARCH_GENERATOR="<meta.*generator.*wordpress.*>"
 
 # Check if contains meta generator WordPress
